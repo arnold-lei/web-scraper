@@ -18,7 +18,8 @@ request('https://www.reddit.com/r/mma', function(error, res, html){
     var $ = cheerio.load(html);
     $('a.title').each(function(i, element){
         var title = element.children[0].data
-        console.log(element.children[0].data);
+        var link = element.attribs.href
+        console.log(title + ': ' + link + '\n');
     })
 })
 
