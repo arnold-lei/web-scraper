@@ -35,7 +35,7 @@ app.get('/', function(req, res) {
             if (err) {
                 console.log(err);
             } else {
-                res.json(doc)
+                res.render('home', {article: doc})
             }
         })
 });
@@ -54,8 +54,6 @@ request('https://www.reddit.com/r/mma', function(error, res, html) {
         }, function(err) {
             if (err) {
                 console.log(err)
-            } else {
-                console.log('Saved Search`')
             }
         })
     })

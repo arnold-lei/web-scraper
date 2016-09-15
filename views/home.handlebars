@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>MMA Front Page</h1>
+    <h1><small>Get your daily MMA fix here</small></h1>
+
+    <ul>
+        {{#each article}}
+            <li><a href="{{this.link}}">{{this.title}}</a></li>
+        {{/each}}
+    </ul>
+</div>
