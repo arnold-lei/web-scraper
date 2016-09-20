@@ -17,6 +17,12 @@ db.on('error', function(err) {
     console.log('Mongoose Error: ', err);
 });
 
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+
+app.use(bodyParser.json());
+
 db.once('open', function() {
     console.log('Mongoose connection successful.');
 });
@@ -42,9 +48,8 @@ app.get('/', function(req, res) {
         })
 });
 
-app.post('/delete', function(req, res){
-
-    console.log(res, req.params);
+app.post('/post', function(req, res){
+    console.log(req.body);
     res.send(req.body)
     // Article.remove({
     //     _id: res.body._id

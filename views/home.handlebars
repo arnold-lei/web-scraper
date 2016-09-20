@@ -6,11 +6,9 @@
             {{#each article}}
                 <li>
                     <a href="{{this.link}}">{{this.title}}</a>
-                    <form action="/delete" method="POST">
-                        <div class="btn-group pull-right">
-                            <input class="btn btn-warning" name="{{this._id}}" type="submit" role="button" value="delete" data-value={{this._id}}>
-                            <input class="btn btn-success" type="submit" role="button" value="save">
-                        </div>
+                    <form action="/post" method="POST">
+                            <button class="btn btn-warning" name="delete" type="submit" role="button" value="{{this._id}}">Delete</button>
+                            <button class="btn btn-success" name="save" type="submit" role="button" value="{{this._id}}">Save</button>
                     </form>
                 </li>
                 <input type="text" class="form-control" name="comment" data-comment-id="{{this._id}}" placeholder="comment">
