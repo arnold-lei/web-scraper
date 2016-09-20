@@ -1,10 +1,11 @@
-var express = require('express');
-var exphbs = require('express-handlebars');
-var app = express();
-var mongoose = require('mongoose');
-var cheerio = require('cheerio');
-var request = require('request');
-var PORT = 3000
+var express     = require('express');
+var exphbs      = require('express-handlebars');
+var app         = express();
+var mongoose    = require('mongoose');
+var cheerio     = require('cheerio');
+var request     = require('request');
+var bodyParser  = require('body-parser');
+var PORT        = 3000
 
 //Require Article Schema
 var Article = require('./models/Article.js');
@@ -40,6 +41,17 @@ app.get('/', function(req, res) {
             }
         })
 });
+
+app.post('/delete', function(req, res){
+
+    console.log(res.body, req.body)
+    res.json(req.body)
+    // Article.remove({
+    //     _id: res.body._id
+    // },{
+    //     justOne: true
+    // })
+})
 
 //running request here:
 request('https://www.reddit.com/r/mma', function(error, res, html) {

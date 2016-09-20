@@ -1,11 +1,20 @@
 <div class="container">
     <h1>MMA Front Page</h1>
     <h1><small>Get your daily MMA fix here</small></h1>
-
-    <ul>
-        {{#each article}}
-            <li><a href="{{this.link}}">{{this.title}}</a></li>
-            <input type="text" class="form-control" name="comment" value="" placeholder="comment">
-        {{/each}}
-    </ul>
+    <div class="col-md-8">
+        <ul>
+            {{#each article}}
+                <li>
+                    <a href="{{this.link}}">{{this.title}}</a>
+                    <form action="/delete" method="POST">
+                        <div class="btn-group pull-right">
+                            <button class="btn btn-warning" type="submit" role="button" value="{{this._id}}">Delete</button>
+                            <button class="btn btn-success" type="submit" role="button">Save</button>
+                        </div>
+                    </form>
+                </li>
+                <input type="text" class="form-control" name="comment" data-comment-id="{{this._id}}" placeholder="comment">
+            {{/each}}
+        </ul>
+    </div>
 </div>
