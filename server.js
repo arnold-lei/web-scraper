@@ -44,8 +44,8 @@ app.get('/', function(req, res) {
 
 app.post('/delete', function(req, res){
 
-    console.log(res.body, req.body)
-    res.json(req.body)
+    console.log(res, req.params);
+    res.send(req.body)
     // Article.remove({
     //     _id: res.body._id
     // },{
